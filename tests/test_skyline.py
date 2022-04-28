@@ -83,9 +83,9 @@ class TestSkyline(TestCase):
         s = skyline.SkylineBlWm(100, 100)
         self.assertTrue(s.add_rect(50, 50))
         self.assertTrue(s.add_rect(100, 50))
-        self.assertEqual(len([r for r in s]), 2)
+        self.assertEqual(len(list(s)), 2)
         self.assertTrue(s.add_rect(40, 40))
-        self.assertEqual(len([r for r in s]), 3)
+        self.assertEqual(len(list(s)), 3)
 
     def test_len(self):
         s = skyline.SkylineBlWm(100, 100)

@@ -404,15 +404,15 @@ class TestPackerOnlineBFF(TestCase):
         p.add_rect(80, 80) # No bins where to pack this rectangle
         self.assertEqual(len(p), 3)
         self.assertEqual(len(p.rect_list()), 4)
-     
+
         # Fill open 100x100 bin
         p.add_rect(45, 45)
         p.add_rect(45, 45)
         self.assertEqual(len(p), 3)
         self.assertEqual(len(p.rect_list()), 6)
-        
+
         # try to exhaust infinite bin
-        for r in range(200):
+        for _ in range(200):
             p.add_rect(39, 39)
         self.assertEqual(len(p), 203)
 
@@ -456,7 +456,7 @@ class TestPackerOnlineBBF(TestCase):
         p.add_bin(150, 30)
 
         # Try infinite bin
-        for r in range(100):
+        for _ in range(100):
             p.add_rect(60, 60)
         self.assertEqual(len(p), 100)
 

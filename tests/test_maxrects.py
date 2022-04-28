@@ -69,10 +69,7 @@ class TestMaxRects(TestCase):
         self.assertTrue(m.add_rect(10, 15))
         self.assertTrue(m.add_rect(40, 40))
 
-        rectangles = []
-        for r in m:
-            rectangles.append(r)
-
+        rectangles = list(m)
         self.assertTrue(Rectangle(0, 0, 10, 15) in rectangles)
         self.assertTrue(Rectangle(10, 0, 40, 40) in rectangles)
         self.assertEqual(len(rectangles), 2)

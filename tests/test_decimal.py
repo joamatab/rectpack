@@ -29,7 +29,7 @@ def random_rectangle_generator(num, max_side=30, min_side=8):
     Returns:
         Rectangle list
     """
-    return (random_rectangle(max_side, min_side) for i in range(0, num))
+    return (random_rectangle(max_side, min_side) for _ in range(num))
 
 
 class TestDecimal(TestCase):
@@ -37,7 +37,7 @@ class TestDecimal(TestCase):
     Test all work when using decimal instead of integers
     """
     def setUp(self):
-        self.rectangles = [r for r in random_rectangle_generator(500)]
+        self.rectangles = list(random_rectangle_generator(500))
         self.bins = [(80, 80, 1), (100, 100, 30)]
 
     def setup_packer(self, packer):

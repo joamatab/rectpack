@@ -224,11 +224,10 @@ class TestGuillotine(TestCase):
         self.assertEqual(g[0], Rectangle(0, 0, 10, 10))
         self.assertEqual(g[1], Rectangle(0, 10, 5, 5))
         self.assertEqual(g[2], Rectangle(5, 10, 1, 1))
-        
+
         self.assertEqual(g[-1], Rectangle(5, 10, 1, 1))
         self.assertEqual(g[-2], Rectangle(0, 10, 5, 5)) 
-               
+
         self.assertEqual(g[1:], 
                 [Rectangle(0, 10, 5, 5), Rectangle(5, 10, 1, 1)])
-        self.assertEqual(g[0:2],
-                [Rectangle(0, 0, 10, 10), Rectangle(0, 10, 5, 5)])
+        self.assertEqual(g[:2], [Rectangle(0, 0, 10, 10), Rectangle(0, 10, 5, 5)])

@@ -24,7 +24,7 @@ def random_rectangle_generator(num, max_side=30, min_side=8):
     Returns:
         Rectangle list
     """
-    return (random_rectangle(max_side, min_side) for i in range(0, num))
+    return (random_rectangle(max_side, min_side) for _ in range(num))
 
 
 
@@ -32,7 +32,7 @@ class TestEnclose(TestCase):
     
     def setUp(self):
         from math import sqrt, ceil
-        self.rectangles = [r for r in random_rectangle_generator(100)]
+        self.rectangles = list(random_rectangle_generator(100))
         self.area = sum(r[0]*r[1] for r in self.rectangles)
         self.max_width = ceil(sqrt(self.area)*1.20)
         self.max_height = ceil(sqrt(self.area)*1.80)

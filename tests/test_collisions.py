@@ -26,14 +26,14 @@ def random_rectangle_generator(num, max_side=30, min_side=8):
     Returns:
         Rectangle list
     """
-    return (random_rectangle(max_side, min_side) for i in range(0, num))
+    return (random_rectangle(max_side, min_side) for _ in range(num))
 
 
 
 class TestCollisions(TestCase):
 
     def setUp(self):
-        self.rectangles = [r for r in random_rectangle_generator(1000)]
+        self.rectangles = list(random_rectangle_generator(1000))
         self.bins = [(100, 100, 1), (150, 150, 20)]
 
     def setup_packer(self, packer):
